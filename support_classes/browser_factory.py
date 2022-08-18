@@ -7,11 +7,6 @@ class BrowserFactory:
     browser: TargetBrowser = TargetBrowser.Chrome
     driver = ""
 
-    def __init__(self, tb: TargetBrowser):
-        self.name = "NoName"
-        self.browser = TargetBrowser
-        self.SetBrowserByEnum(tb)
-
     def __init__(self, tb: str):
         self.name = "NoName"
         self.browser = TargetBrowser
