@@ -52,32 +52,23 @@ class BrowserFactory:
         cycles: int = 0
         listElements = []
         dataFound: bool = False
-        if expected:
-            while cycles < intervals:
-                if method.lower() == "css":
-                    listElements = self.driver.find_elements(By.CSS_SELECTOR, selector)
-                elif method.lower() == "xpath":
-                    listElements = self.driver.find_elements(By.XPATH, selector)
-                elif method.lower() == "id":
-                    listElements = self.driver.find_elements(By.ID, selector)
-                else:
-                    listElements = self.driver.find_elements(By.CSS_SELECTOR, selector)
+        while cycles < intervals:
+            if method.lower() == "css":
+                listElements = self.driver.find_elements(By.CSS_SELECTOR, selector)
+            elif method.lower() == "xpath":
+                listElements = self.driver.find_elements(By.XPATH, selector)
+            elif method.lower() == "id":
+                listElements = self.driver.find_elements(By.ID, selector)
+            else:
+                listElements = self.driver.find_elements(By.CSS_SELECTOR, selector)
+            if expected:
                 if len(listElements) > 0:
                     dataFound = True
                     break
                 else:
                     time.sleep(waitSize)
                     cycles = cycles + 1
-        else:
-            while cycles < intervals:
-                if method.lower() == "css":
-                    listElements = self.driver.find_elements(By.CSS_SELECTOR, selector)
-                elif method.lower() == "xpath":
-                    listElements = self.driver.find_elements(By.XPATH, selector)
-                elif method.lower() == "id":
-                    listElements = self.driver.find_elements(By.ID, selector)
-                else:
-                    listElements = self.driver.find_elements(By.CSS_SELECTOR, selector)
+            else:
                 if len(listElements) > 0:
                     time.sleep(waitSize)
                     cycles = cycles + 1
