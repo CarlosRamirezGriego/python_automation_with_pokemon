@@ -47,3 +47,7 @@ class BrowserFactory:
 
     def MaximizeBrowser(self):
         self.driver.maximize_window()
+
+
+    def NavigateToThisPage(self, url: str):
+        self.driver.get(url)
