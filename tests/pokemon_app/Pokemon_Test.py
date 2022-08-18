@@ -8,5 +8,5 @@ from businessLogic.api.PokemonLogic import PokemonLogic
 
 def test_exampleForAPI():
     apiLogic = PokemonLogic()
-    exists: bool = apiLogic.isThereAPokemonWithThisName("Pikachu")
-    assert exists == True
+    pkNumber: str = apiLogic.returnNumberOfPokemonWithThisName("Pikachu")
+    assert pkNumber == 25
