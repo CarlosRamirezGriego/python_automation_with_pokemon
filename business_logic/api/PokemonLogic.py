@@ -3,7 +3,7 @@ import sys
 # setting path
 sys.path.append('../python_automation_with_pokemon')
 
-from apiClients.Pokemon import *
+from api_clients.Pokemon import *
 
 class PokemonLogic:
 
