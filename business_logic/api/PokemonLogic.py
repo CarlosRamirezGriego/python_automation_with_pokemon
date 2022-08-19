@@ -13,38 +13,38 @@ class PokemonLogic:
         self.name = "NoName"
 
     # instance methods
-    def isThereAPokemonWithThisName(self, pokemonName: str) -> bool:
+    def IsThereAPokemonWithThisName(self, pokemonName: str) -> bool:
         response = pokemon_byName_GET(pokemonName.lower())
         if response.status_code == 200:
             return True
         else:
             return False
 
-    def isThereAPokemonWithThisNumber(self, pokemonNumber: int) -> bool:
+    def IsThereAPokemonWithThisNumber(self, pokemonNumber: int) -> bool:
         response = pokemon_byNumber_GET(pokemonNumber)
         if response.status_code == 200:
             return True
         else:
             return False
 
-    def returnAllInformationFromPokemonWithThisName(self, pokemonName: str):
-        exist: bool = self.isThereAPokemonWithThisName(pokemonName)
+    def ReturnAllInformationFromPokemonWithThisName(self, pokemonName: str):
+        exist: bool = self.IsThereAPokemonWithThisName(pokemonName)
         response = pokemon_byName_GET(pokemonName.lower())
         if not exist:
             print("returnAllInformationFromPokemonWithThisName() didnt return information for Pokemon named: "+pokemonName)
         return response
 
 
-    def returnAllInformationFromPokemonWithThisNumber(self, pokemonNumber: int):
-        exist: bool = self.isThereAPokemonWithThisNumber(pokemonNumber)
+    def ReturnAllInformationFromPokemonWithThisNumber(self, pokemonNumber: int):
+        exist: bool = self.IsThereAPokemonWithThisNumber(pokemonNumber)
         response = pokemon_byNumber_GET(pokemonNumber)
         if not exist:
             print("returnAllInformationFromPokemonWithThisNumber() didnt return information for Pokemon named: "+pokemonNumber)
         return response
 
-    def returnNameOfPokemonWithThisNumber(self, pokemonNumber: int):
+    def ReturnNameOfPokemonWithThisNumber(self, pokemonNumber: int):
         name: str = ""
-        response = self.returnAllInformationFromPokemonWithThisNumber(pokemonNumber);
+        response = self.ReturnAllInformationFromPokemonWithThisNumber(pokemonNumber);
         if response.status_code == 200:
             data = response.json()
             name = data["name"]
@@ -52,9 +52,9 @@ class PokemonLogic:
             print("returnNameOfPokemonWithThisNumber() didnt return information for Pokemon number: "+pokemonNumber)
         return name
 
-    def returnNumberOfPokemonWithThisName(self, pokemonName: str):
+    def ReturnNumberOfPokemonWithThisName(self, pokemonName: str):
         id: int = -1
-        response = self.returnAllInformationFromPokemonWithThisName(pokemonName);
+        response = self.ReturnAllInformationFromPokemonWithThisName(pokemonName);
         if response.status_code == 200:
             data = response.json()
             id = data["id"]

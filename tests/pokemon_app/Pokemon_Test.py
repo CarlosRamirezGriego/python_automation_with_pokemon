@@ -12,8 +12,8 @@ from support_classes.system_enums import TargetBrowser
 
 def test_exampleForAPI():
     apiLogic = PokemonLogic()
-    pkNumber: int = apiLogic.returnNumberOfPokemonWithThisName("Pikachu")
-    pkName: str = apiLogic.returnNameOfPokemonWithThisNumber(25)
+    pkNumber: int = apiLogic.ReturnNumberOfPokemonWithThisName("Pikachu")
+    pkName: str = apiLogic.ReturnNameOfPokemonWithThisNumber(25)
     assert pkNumber == 25
     assert pkName == "pikachu"
 
